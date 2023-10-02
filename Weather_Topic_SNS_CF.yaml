@@ -1,0 +1,18 @@
+Resources:
+  WeatherUpdatesTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      DisplayName: "Weather Updates"
+      Subscription:
+        - Protocol: email
+          Endpoint: !Ref EmailAddress
+        - Protocol: sms
+          Endpoint: !Ref PhoneNumber
+
+Parameters:
+  EmailAddress:
+    Type: String
+    Description: "Email address for receiving weather updates"
+  PhoneNumber:
+    Type: String
+    Description: "Phone number for receiving weather updates"
